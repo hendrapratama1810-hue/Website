@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUG VERSE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#000;
+    color:#fff;
+    overflow:hidden;
+}
+
+/* BACKGROUND RINGAN */
+.bg{
+    position:fixed;
+    inset:0;
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #00ffcc22,
+            #00ffcc22 10px,
+            transparent 10px,
+            transparent 20px
+        );
+    animation: move 25s linear infinite;
+    filter: blur(3px);
+    z-index:-1;
+}
+
+@keyframes move{
+    from{ background-position:0 0; }
+    to{ background-position:200px 200px; }
+}
+
+/* LOGIN BOX */
+.box{
+    width:280px;
+    background:rgba(0,0,0,0.7);
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+}
+
+h1{
+    font-size:18px;
+    margin-bottom:20px;
+    letter-spacing:1px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:6px 0;
+    border:none;
+    border-radius:6px;
+    background:#111;
+    color:#fff;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border:none;
+    border-radius:6px;
+    background:#00ffcc;
+    color:#000;
+    font-weight:bold;
+}
+
+.msg{
+    margin-top:8px;
+    font-size:13px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="box">
+    <h1>BUG VERSE BY HENDRA</h1>
+    <input id="u" placeholder="Username">
+    <input id="p" type="password" placeholder="Password">
+    <button onclick="login()">LOGIN</button>
+    <div class="msg" id="msg"></div>
+</div>
+
+<script>
+function login(){
+    const u = document.getElementById("u").value;
+    const p = document.getElementById("p").value;
+    const msg = document.getElementById("msg");
+
+    if(u==="K0nt0l" && p==="1"){
+        msg.style.color="#00ffcc";
+        msg.innerText="LOGIN BERHASIL";
+        setTimeout(()=>{
+            window.location.href = "page2.html";
+        }, 600);
+    }else{
+        msg.style.color="red";
+        msg.innerText="LOGIN GAGAL";
+    }
+}
+</script>
+
+</body>
+</html>
